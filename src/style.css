@@ -62,3 +62,14 @@ li {
     text-decoration: underline;
     text-underline-offset: 4px;
 }
+.buttonDiv > button {
+    padding: 5px 20px;
+    border-radius: 3px;
+    border: none;
+    transition: all 0.5s;
+}
+.buttonDiv > button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
