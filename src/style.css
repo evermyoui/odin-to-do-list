@@ -13,11 +13,52 @@
 body {
     background-color: var(--grey-blue);
 }
+h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+h2 {
+    color: white;
+    background-color: var(--grey);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
 section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-area: ;
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-areas:    'd t'
+                            'q t'
+                            'p p';
+    gap: 10px;
+    margin-top: 40px;
+    padding: 10px;
+}
+section > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 .project-class {
+    grid-area: p;
+}
+.to-do-list-class {
+    grid-area: t;
+}
+.today-due-class {
+    grid-area: d;
+}
+.quote-class {
+    grid-area: q;
+}
+ul {
     background-color: #fff;
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+li {
+    list-style-type: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
