@@ -27,7 +27,7 @@ h2 {
 section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr auto 1fr;
+    grid-template-rows: repeat(3, minmax(150px, auto));
     grid-template-areas:    'd t'
                             'q t'
                             'p p';
@@ -62,7 +62,13 @@ li {
     text-decoration: underline;
     text-underline-offset: 4px;
 }
+.buttonDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 .buttonDiv > button {
+    width: 150px;
     padding: 5px 20px;
     border-radius: 3px;
     border: none;
@@ -72,4 +78,15 @@ li {
     cursor: pointer;
     color: white;
     background-color: black;
+}
+.buttonDiv > input {
+    width: 160px;
+    font-size: 14px;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+.buttonDiv > input:focus {
+    width: 200px;
 }
