@@ -12,7 +12,22 @@ export default function homeDisplay(){
 
     const buttonDiv = document.createElement("div");
     buttonDiv.classList.add("buttonDiv");
+
+    const label = document.createElement("label");
+    label.classList.add("project-label");
+    label.htmlFor = "project-title";
+    label.textContent = `Add Project`;
+    label.style.display = "none";
+
+    const input = document.createElement("input");
+    input.type = `text`;
+    input.name = `project-title`;
+    input.id = `project-title`;
+    input.placeholder = `Enter Project Title`;
+    input.style.display = "none";
+
     const addProjectBtn = document.createElement("button");
+    addProjectBtn.classList.add("addProjectButton");
     addProjectBtn.textContent = `Add Project`;
 
     const todolistDiv = document.createElement("div");
@@ -42,6 +57,8 @@ export default function homeDisplay(){
     const quoteP = document.createElement("p");
     quoteP.textContent = ""; // quote api
 
+    buttonDiv.appendChild(label);
+    buttonDiv.appendChild(input);
     buttonDiv.appendChild(addProjectBtn);
 
     projectDiv.appendChild(projectH2);
