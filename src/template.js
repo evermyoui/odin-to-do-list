@@ -8,6 +8,7 @@ export default function homeDisplay(){
     projectH2.textContent = `All Projects`;
 
     const projectUl = document.createElement("ul");
+    projectUl.classList.add("project-ul");
     //addlist
 
     const buttonDiv = document.createElement("div");
