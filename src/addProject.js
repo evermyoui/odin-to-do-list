@@ -26,7 +26,6 @@ class Add_Project {
         if (!title.trim()){
             title = `Unnamed Project`;
         }
-        console.log(`Project ${title} has been saved`);
     }
     clear(label, input){
         label.style.display = "none";
