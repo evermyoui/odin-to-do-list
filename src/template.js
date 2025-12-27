@@ -55,8 +55,8 @@ export default function homeDisplay(){
     quoteH2.textContent = `Quote of the Day`;
 
     const quoteP = document.createElement("p");
-    quoteP.textContent = ""; // quote api
-
+    quoteP.classList.add("quote-p");
+    
     buttonDiv.appendChild(label);
     buttonDiv.appendChild(input);
     buttonDiv.appendChild(addProjectBtn);
