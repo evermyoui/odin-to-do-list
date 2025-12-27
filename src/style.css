@@ -52,6 +52,13 @@ section > div {
 .quote-class {
     grid-area: q;
 }
+.quote-p {
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    word-spacing: 3px;
+    height: 100%;
+}
 ul {
     background-color: #fff;
     padding: 5px 20px;
