@@ -1,7 +1,9 @@
 import { format } from "date-fns";
-import displayTextarea from "./list";
 
 export default class Add_Project {
+    constructor(){
+        this.projects = [];
+    }
     displayInput(label, input){
         label.style.display = "block";
         input.style.display = "block";
@@ -19,11 +21,13 @@ export default class Add_Project {
         if (!title.trim()){
             title = `Unnamed Project`;
         }
+        this.projects.push({
+            title,
+        });
         const p = document.createElement("p");
         p.textContent = title;
         const p1 = document.createElement("p");
-        const today = new Date();
-        const formatted = format(today, "yyyy-MM-dd");
+        const formatted = format(new Date(), "yyyy-MM-dd");
         p1.textContent = formatted;
         const div = document.createElement("div");
         const addBtn = document.createElement("button");
@@ -33,16 +37,15 @@ export default class Add_Project {
         deleteBtn.classList.add("delete-button");
         deleteBtn.textContent = "Delete";
 
-        li.appendChild(p);
-        li.appendChild(p1);
-        div.appendChild(addBtn);
-        div.appendChild(deleteBtn);
-        card.appendChild(li);
-        card.appendChild(div);
+        li.append(p, p1);
+        div.append(addBtn, deleteBtn);
+        card.append(li, div);
         projectUl.appendChild(card);
 
         addBtn.addEventListener("click", ()=>{
-            displayTextarea();
+        })
+        deleteBtn.addEventListener("click", ()=> {
+
         })
     }
 }
