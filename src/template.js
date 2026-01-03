@@ -9,7 +9,6 @@ export default function homeDisplay(){
 
     const projectUl = document.createElement("ul");
     projectUl.classList.add("project-ul");
-    //addlist
 
     const buttonDiv = document.createElement("div");
     buttonDiv.classList.add("buttonDiv");
@@ -37,8 +36,8 @@ export default function homeDisplay(){
     const todoH2 = document.createElement("h2");
     todoH2.textContent = `To Do List`;
 
-    const todoUl = document.createElement("ul");
-    //addlist
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo-class");
 
     const dueDiv = document.createElement("div");
     dueDiv.classList.add("today-due-class");
@@ -58,25 +57,15 @@ export default function homeDisplay(){
     const quoteP = document.createElement("p");
     quoteP.classList.add("quote-p");
     
-    buttonDiv.appendChild(label);
-    buttonDiv.appendChild(input);
-    buttonDiv.appendChild(addProjectBtn);
+    buttonDiv.append(label, input, addProjectBtn);
 
-    projectDiv.appendChild(projectH2);
-    projectDiv.appendChild(projectUl);
-    projectDiv.appendChild(buttonDiv);
+    projectDiv.append(projectH2, projectUl, buttonDiv);
 
-    todolistDiv.appendChild(todoH2);
-    todolistDiv.appendChild(todoUl);
+    todolistDiv.append(todoH2, todoDiv);
 
-    dueDiv.appendChild(dueH2);
-    dueDiv.appendChild(dueUl);
+    dueDiv.append(dueH2,dueUl);
 
-    quoteDiv.appendChild(quoteH2);
-    quoteDiv.appendChild(quoteP);
+    quoteDiv.append(quoteH2, quoteP);
 
-    container.appendChild(projectDiv);
-    container.appendChild(todolistDiv);
-    container.appendChild(dueDiv);
-    container.appendChild(quoteDiv);
+    container.append(projectDiv,todolistDiv,dueDiv,quoteDiv);
 }
