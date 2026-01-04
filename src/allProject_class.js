@@ -16,3 +16,9 @@ class AllProjects{
         this.allProject = this.allProject.filter(project => project.id !== projectID);
     }
 }
+function getLocalStorage(key){
+    return JSON.parse(localStorage.getItem(key));
+}
+function settingLocalStorage(key, value){
+    localStorage.setItem(key, JSON.stringify(value));
+}
