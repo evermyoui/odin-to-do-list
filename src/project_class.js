@@ -1,12 +1,12 @@
 import { format } from "date-fns";
 export default class Project {
-    constructor(title = "Unnamed Project"){
-        this.title = title;
+    constructor(title){
+        this.title = title.trim() === "" ? "Unnamed Project" : title;
         this.deletedTodo = [];
         this.todo = [];
         this.doneTodo = [];
         this.id = crypto.randomUUID();
-        this.date = format(new Date(), "yyyy-mm-dd");
+        this.date = format(new Date(), "yyyy-MM-dd");
         this.isDone = false;
     }
     addTodo(todo){
