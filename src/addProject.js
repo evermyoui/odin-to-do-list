@@ -1,20 +1,30 @@
-import Add_Project from "./uiProject";
+// import Add_Project from "./uiProject";
+import { uiDisplay } from "./project_controller";
 
 export default function addProject(){
     const addProjectBtn = document.querySelector(".addProjectButton");
     const label = document.querySelector(".project-label");
     const input = document.querySelector("#project-title");
 
-    const project = new Add_Project();
     let firstTap = true;
 
+    const displayInput = (label, input)=>{
+        label.style.display = "block";
+        input.style.display = "block";
+    }
+    const clear = (label, input) => {
+        label.style.display = "none";
+        input.style.display = "none";
+        input.value = "";
+    }
+    
     addProjectBtn.addEventListener("click", ()=>{
         if (firstTap){
-            project.displayInput(label, input);
+            displayInput(label, input);
             firstTap = false;
         }else {
-            project.uiDisplay(input.value);
-            project.clear(label, input);
+            uiDisplay(input.value);
+            clear(label, input);
             firstTap = true;
         }
     });
