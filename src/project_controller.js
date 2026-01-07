@@ -1,4 +1,5 @@
 import AllProjects, {settingLocalStorage} from "./allProject_class";
+import addTodo from "./todo_controller";
 
 const all_project = new AllProjects();
 
@@ -28,9 +29,9 @@ export function createProjectElements({title, date, id}){
     projectUl.appendChild(card);
 
     all_project.allProject.length !== 0 ? projectUl.style.display = "flex" : projectUl.style.display = "none";
-    addBtn.addEventListener("click", ()=>{
-            
-    })
+
+    addBtn.addEventListener("click",addTodo);
+
     deleteBtn.addEventListener("click", ()=> {
         all_project.deleteProject(id);
         all_project.allProject.length !== 0 ? projectUl.style.display = "flex" : projectUl.style.display = "none";
