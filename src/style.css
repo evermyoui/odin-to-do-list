@@ -96,6 +96,8 @@ ul {
 .buttonDiv > button:hover {
     cursor: pointer;
     color: white;
+}
+.addProjectButton:hover {
     background-color: black;
 }
 .buttonDiv > input {
@@ -147,4 +149,23 @@ ul {
 .card {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
+}
+.todo-container {
+    background-color: #fff;
+    padding: 5px 20px;
+}
+.cancel {
+    background-color: rgba(255, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+.cancel:hover {
+    background-color: red;
+}
+.card > input {
+    width: 70%;
+}
+
+.dropdown-div.active {
+
 }
