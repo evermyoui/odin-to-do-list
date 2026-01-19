@@ -1,9 +1,9 @@
 import { Todo } from "../logic/todo";
 
 export class TodoManager{
-    constructor(){
-        this.projectManager = this.projectManager;
-        this.container = document.querySelector('.todo_class');
+    constructor(projectManager){
+        this.projectManager = projectManager;
+        this.container = document.querySelector('.todo-class');
         this.isVisible = false;
         this.currentProjectId = null;
     }
@@ -53,7 +53,7 @@ export class TodoManager{
 
         return container;
     }
-    attachHandlers(){
+    attachHandlers(card){
         const addBtn = card.querySelector(".add-button");
         const deleteBtn = card.querySelector(".delete-button");
         const dropdownBtn = card.querySelector(".dropdown-btn");
@@ -96,4 +96,3 @@ export class TodoManager{
         this.hide();
     }
 }
-

@@ -7,7 +7,7 @@ const STORAGE_KEY = "allProject";
 export class ProjectManager {
     constructor(){
         this.storage = new Storage();
-        this.projects = this.storage.load(STORAGE_KEY);
+        this.projects = this.storage.load(STORAGE_KEY) || [];
         this.view = new ProjectView('.project-ul'); 
 
         this.render();

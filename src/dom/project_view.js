@@ -39,38 +39,3 @@ export class ProjectView{
         return div.innerHTML;
     }
 }
-
-// export class ProjectView{
-//     renderList(projects, onDelete, onAddToDo){
-//         const projectUl = document.querySelector(".project-ul");
-//         projectUl.innerHTML = "";
-
-//         projects.forEach(project => {
-//             const card = this.createProjectCard(project, onDelete, onAddToDo);
-//             projectUl.appendChild(card);
-
-//             projectUl.style.display = projects.length > 0 ? "flex" : "none";
-//         })
-//     }
-
-//     createProjectCard(project, onDelete, onAddToDo){
-//         const card = document.createElement("div");
-//         card.classList.add("card");
-
-//         card.innerHTML = `
-//             <li>
-//                 <p>${project.title}</p>
-//                 <p>${project.date}</p>
-//             </li>
-
-//             <div class = "button-group">
-//                 <button class = "add-button">Add to do</button>
-//                 <button class = "delete-button">Delete</button>
-//             </div>
-//         `;
-//         card.querySelector(".add-button").addEventListener("click", () => onAddToDo(project.id));
-//         card.querySelector(".delete-button").addEventListener("click", () => onDelete(project.id));
-
-//         return card;
-//     }
-// }

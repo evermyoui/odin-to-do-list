@@ -1,13 +1,24 @@
+import {renderTemplate} from "./template.js"
+import { ProjectManager } from "./dom/project_manager";
+import { TodoManager } from "./dom/todo_manager";
+import { AddProjectUI } from "./dom/addProjectUI";
+import fetchQuote from "./quoteRandomizer";
 import "./style.css";
-import homeDisplay from "./template.js";
-import addProject from "./addProject.js";
-import fetchQuote from "./quoteRandomizer.js";
-import AllProjects from "./allProject_class.js";
-import { createProjectElements } from "./project_controller.js";
 
-const all_project = new AllProjects();
+function init(){
+    renderTemplate();
 
-homeDisplay();
-addProject();
-fetchQuote();
-all_project.allProject.forEach(createProjectElements);
+    const projectManager = new ProjectManager();
+    const todoManager = new TodoManager(projectManager);
+    const addProjectUI = new AddProjectUI(projectManager);
+
+    window.todoManager = todoManager;
+
+    fetchQuote();
+}
+
+if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+}else {
+    init();
+}

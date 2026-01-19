@@ -42,11 +42,6 @@ export class AddProjectUI{
     }
     handleSubmit(){
         const title = this.input.value.trim();
-
-        if(!title){
-            alert("Please enter a Title");
-            return;
-        }
         this.projectManager.add(title);
         this.hideInput();
     }

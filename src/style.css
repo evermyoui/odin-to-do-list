@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --grey-blue: #9494ab;
     --grey: #545758;
     --pastel-grey: #babad6;
@@ -64,11 +64,6 @@ ul {
     padding: 5px 20px;
     border-radius: 5px;
 }
-/* li {
-    list-style-type: none;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-} */
  li{
     list-style-type: none;
  }
@@ -164,4 +159,366 @@ ul {
 }
 .card > input {
     width: 70%;
-}
+} */
+
+:root {
+            --grey-blue: #9494ab;
+            --grey: #545758;
+            --pastel-grey: #babad6;
+            --white: #ffffff;
+            --green: #22c55e;
+            --dark-green: #16a34a;
+            --red: #ef4444;
+            --dark-red: #dc2626;
+            --spacing-xs: 5px;
+            --spacing-sm: 10px;
+            --spacing-md: 20px;
+            --spacing-lg: 40px;
+            --radius: 5px;
+            --radius-sm: 3px;
+        }
+
+        *, *::before, *::after {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--grey-blue);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--spacing-md);
+        }
+
+        h1 {
+            color: var(--white);
+        }
+
+        h2 {
+            color: var(--white);
+            background-color: var(--grey);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius);
+        }
+
+        section.container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto auto 1fr;
+            grid-template-areas:    
+                "due todo"
+                "quote todo"
+                "projects projects";
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm);
+            flex: 1;
+        }
+
+        .project-class {
+            grid-area: projects;
+        }
+
+        .to-do-list-class {
+            grid-area: todo;
+        }
+
+        .today-due-class {
+            grid-area: due;
+        }
+
+        .quote-class {
+            grid-area: quote;
+        }
+
+        section > div {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .quote-p {
+            background-color: var(--white);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            word-spacing: 3px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        ul {
+            background-color: var(--white);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius);
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        li {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        li > p:nth-child(1) {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            font-size: 20px;
+        }
+
+        li > p:nth-child(2) {
+            font-size: 10px;
+        }
+
+        .buttonDiv {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .buttonDiv > button {
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-sm);
+            border: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .buttonDiv > button:hover {
+            color: var(--white);
+        }
+
+        .addProjectButton {
+            background-color: var(--white);
+        }
+
+        .addProjectButton:hover {
+            background-color: var(--grey);
+        }
+
+        .buttonDiv > input,
+        .buttonDiv > label {
+            padding: var(--spacing-xs);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .project-ul {
+            display: none;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            background-color: var(--pastel-grey);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .card > input {
+            flex: 1;
+            padding: var(--spacing-xs);
+            border: 1px solid var(--grey);
+            border-radius: var(--radius-sm);
+        }
+
+        .button-group,
+        .card > div {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .add-button {
+            background-color: var(--green);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-xs) 15px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .add-button:hover {
+            background-color: var(--dark-green);
+        }
+
+        .delete-button {
+            background-color: var(--red);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-xs) 15px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .delete-button:hover {
+            background-color: var(--dark-red);
+        }
+
+        .cancel {
+            background-color: rgba(255, 0, 0, 0.5);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-xs) var(--spacing-md);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .cancel:hover {
+            background-color: var(--red);
+        }
+
+        .todo-container {
+            background-color: var(--white);
+            padding: var(--spacing-xs) var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .todo-container .card,
+        .todo-card {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+            align-items: stretch;
+        }
+
+        .todo-container .card > div,
+        .todo-card > div {
+            display: flex;
+            justify-content: flex-end;
+            gap: var(--spacing-xs);
+        }
+
+        .todo-container input,
+        .todo-card input {
+            padding: var(--spacing-xs);
+            border: 1px solid var(--grey);
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+        }
+
+        .description {
+            padding: var(--spacing-xs);
+            border: 1px solid var(--grey);
+            border-radius: var(--radius-sm);
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .dropdown-div {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropdown-btn {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background-color: var(--white);
+            border: 1px solid var(--grey);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown-btn:hover {
+            background-color: var(--pastel-grey);
+        }
+
+        .dropdown-ul {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--white);
+            border: 1px solid var(--grey);
+            border-radius: var(--radius-sm);
+            padding: 0;
+            gap: 0;
+            z-index: 10;
+        }
+
+        .dropdown-div.active .dropdown-ul {
+            display: flex;
+        }
+
+        .dropdown-ul li {
+            padding: var(--spacing-sm);
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-ul li:hover {
+            background-color: var(--pastel-grey);
+        }
+
+        .todo-class {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        @media (max-width: 768px) {
+            section.container {
+                grid-template-columns: 1fr;
+                grid-template-areas:    
+                    "due"
+                    "quote"
+                    "todo"
+                    "projects";
+            }
+            
+            .card {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .button-group {
+                justify-content: stretch;
+            }
+            
+            .button-group button {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            section.container {
+                padding: var(--spacing-xs);
+                gap: var(--spacing-xs);
+            }
+            
+            .card > div {
+                flex-direction: column;
+            }
+        }

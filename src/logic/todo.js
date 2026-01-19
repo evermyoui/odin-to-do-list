@@ -30,12 +30,3 @@ const PRIORITY_LEVELS = {
     'Medium' : 2,
     'Low' : 1
 };
-
-// function getLevel(level){
-//     let levels = new Map();
-//     levels.set("High", 3);
-//     levels.set("Medium", 2);
-//     levels.set("Low", 1);
-
-//     return levels.get(level);
-// }
