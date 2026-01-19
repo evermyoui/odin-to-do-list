@@ -7,7 +7,8 @@ const STORAGE_KEY = "allProject";
 export class ProjectManager {
     constructor(){
         this.storage = new Storage();
-        this.projects = this.storage.load(STORAGE_KEY) || [];
+        const savedProjects = this.storage.load(STORAGE_KEY) || [];
+        this.projects = savedProjects ? savedProjects.map(p => new Project(p.title, p.id, p.todos, p.date)) : [];
         this.view = new ProjectView('.project-ul'); 
 
         this.render();
@@ -40,6 +41,7 @@ export class ProjectManager {
     }
     addToDoToProject(projectId, todo){
         const project = this.get(projectId);
+
         if (project){
             project.addTodo(todo);
             this.save();
