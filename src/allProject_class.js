@@ -20,3 +20,25 @@ export default class AllProjects{
 export function settingLocalStorage(key, value){
     localStorage.setItem(key, JSON.stringify(value));
 }
+
+// export default class AllProjects{
+//     constructor(storage){
+//         this.storage = storage;
+//         this.allProject = this.storage.load("allProject");
+//     }
+
+//     addProject(title){
+//         const project = new Project(title);
+//         this.allProject.push(project);
+//         this.sync();
+//         return project;
+//     }
+
+//     deleteProject(projectID){
+//         this.allProject = this.allProject.filter(p => p.id !== projectID);
+//         this.sync();
+//     }
+//     sync(){
+//         this.storage.save("allProject", this.allProject);
+//     }
+// }
