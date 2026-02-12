@@ -8,3 +8,7 @@ export const addTextToElem = (element, text) => {
     const elem = document.querySelector(element);
     elem.textContent = text;
 }
+export const addAttributeToElem = (element, attName, attValue) => {
+    const newElem = document.querySelector(element);
+    newElem.setAttribute(attName, attValue);
+}
