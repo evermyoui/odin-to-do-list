@@ -1,6 +1,10 @@
 import { Project } from "../factories/project";
 import { projectDependencies } from "../managers/project_manager";
-import { addTextToElem, loadElemToContainer } from "./call_loaders";
+import { 
+    addAttributeToElem, 
+    addTextToElem, 
+    loadElemToContainer 
+} from "./call_loaders";
 
 //sample projects
 const project = new Project("Project 1");
@@ -20,4 +24,14 @@ export function displayCard(){
     });
     loadElemToContainer(`#project-card`, 'button', 'project-add-btn');
     addTextToElem(`#project-add-btn`, "Add Project");
+}
+export function displayEnterProject(){
+    loadElemToContainer('#project-card', 'button', 'cancel-add-project-btn');
+    addTextToElem(`#cancel-add-project-btn`, "Cancel");
+    addAttributeToElem("#cancel-add-project-btn", `style`, `display: none;`);
+    
+    loadElemToContainer(`#project-card`, "input", `project-input-title`);
+    addAttributeToElem(`#project-input-title`, "type", "text");
+    addAttributeToElem(`#project-input-title`, "placeholder", "Enter Project Title");
+    addAttributeToElem("#project-input-title", `style`, `display: none;`);
 }
