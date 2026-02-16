@@ -2,7 +2,7 @@ import {
     displayCard, 
     displayEnterProject, 
 } from "../dom/display_dom";
-import { createProject, projectDependencies } from "../managers/project_manager";
+import { createProject, deleteProject, projectDependencies } from "../managers/project_manager";
 
 export class Main_App {
     constructor(){   
@@ -11,6 +11,15 @@ export class Main_App {
         displayCard();
         displayEnterProject();
         this.addAndCancelButtons();
+        document.querySelectorAll(".projects").forEach(project => {
+            const title = project.querySelector('[id$="-title"]');
+            title.addEventListener('click', ()=> {
+                //expand todo
+                const projId = project.dataset.id;
+                console.log(projId);
+            });
+            //delete project
+        });
     }
     addAndCancelButtons(){
         let isConfirm = false;
