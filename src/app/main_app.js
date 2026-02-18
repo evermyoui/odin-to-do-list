@@ -11,15 +11,10 @@ export class Main_App {
         displayCard();
         displayEnterProject();
         this.addAndCancelButtons();
-        document.querySelectorAll(".projects").forEach(project => {
-            const title = project.querySelector('[id$="-title"]');
-            title.addEventListener('click', ()=> {
-                //expand todo
-                const projId = project.dataset.id;
-                console.log(projId);
-            });
-            //delete project
-        });
+        this.eachProjectClicks(); // not working.
+    }
+    clearDisplay(){
+
     }
     addAndCancelButtons(){
         let isConfirm = false;
@@ -52,5 +47,23 @@ export class Main_App {
             addBtn.textContent = `Add Project`;
             isConfirm = false;
         })
+    }
+    eachProjectClicks(){
+        document.querySelectorAll(".projects").forEach(project => {
+            const projId = project.dataset.id;
+            const title = project.querySelector('[id$="-title"]');
+            title.addEventListener('click', ()=> {
+                //expand todo
+            });
+            //delete project
+            const deleteProj = project.querySelector(`[id$=-delete-btn]`);
+            deleteProj.addEventListener("click", () => {
+                console.log("delete");
+                deleteProject(projId);
+                console.log(projectDependencies);
+                document.querySelector(".container").innerHTML = "";
+                this.homePage();
+            });
+        });
     }
 }
