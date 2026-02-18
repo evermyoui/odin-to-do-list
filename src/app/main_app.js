@@ -13,9 +13,6 @@ export class Main_App {
         this.addAndCancelButtons();
         this.eachProjectClicks(); // not working.
     }
-    clearDisplay(){
-
-    }
     addAndCancelButtons(){
         let isConfirm = false;
 
