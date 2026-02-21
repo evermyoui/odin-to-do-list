@@ -10,12 +10,12 @@ export const projectDependencies = (() => {
     const init = () => {
         const saved = storage.load();
 
-        if (saved.length = 0){
+        if (saved.length === 0){
             const defaultProject = new Project("default");
-            const projects = [defaultProject];
+            projects = [defaultProject];
             storage.save(projects);
         }else {
-            projects.map(p => {
+            projects = saved.map(p => {
                 const project = new Project(p.title);
                 project.id = p.id;
                 project.todos = p.todos || [];
