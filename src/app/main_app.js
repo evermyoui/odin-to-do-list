@@ -2,7 +2,9 @@ import {
     displayCard, 
     displayEnterProject, 
 } from "../dom/display_dom";
-import { createProject, deleteProject, projectDependencies } from "../managers/project_manager";
+import { 
+    projectDependencies 
+} from "../managers/project_manager";
 
 export class Main_App {
     constructor(){   
@@ -11,7 +13,7 @@ export class Main_App {
         displayCard();
         displayEnterProject();
         this.addAndCancelButtons();
-        this.eachProjectClicks(); // not working.
+        this.eachProjectClicks();
     }
     addAndCancelButtons(){
         let isConfirm = false;
@@ -28,10 +30,10 @@ export class Main_App {
                 addBtn.textContent = "Confirm Add Project";
                 isConfirm = true;
             }else {
-                createProject(projInput.value);
+                projectDependencies.createProject(projInput.value);
                 container.innerHTML = '';
                 this.homePage();
-                console.log(projectDependencies);
+                console.log(projectDependencies.getProjects());
                 cancelBtn.style.display = `none`;
                 projInput.style.display = `none`;
                 isConfirm = false;
@@ -48,16 +50,24 @@ export class Main_App {
     eachProjectClicks(){
         document.querySelectorAll(".projects").forEach(project => {
             const projId = project.dataset.id;
+            const deleteProj = project.querySelector(`[id$=-delete-btn]`);
             const title = project.querySelector('[id$="-title"]');
+
+            const projects = projectDependencies.getProjects();
+            const defaultId = projects[0].id;
+
+            if (defaultId === projId){
+                deleteProj.style.display = "none";
+            }
+
             title.addEventListener('click', ()=> {
                 //expand todo
             });
             //delete project
-            const deleteProj = project.querySelector(`[id$=-delete-btn]`);
             deleteProj.addEventListener("click", () => {
                 console.log("delete");
-                deleteProject(projId);
-                console.log(projectDependencies);
+                projectDependencies.deleteProject(projId);
+                console.log(projectDependencies.getProjects());
                 document.querySelector(".container").innerHTML = "";
                 this.homePage();
             });

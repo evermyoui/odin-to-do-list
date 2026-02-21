@@ -1,4 +1,3 @@
-import { Project } from "../factories/project";
 import { projectDependencies } from "../managers/project_manager";
 import { 
     addAttributeToElem, 
@@ -6,16 +5,10 @@ import {
     loadElemToContainer 
 } from "./call_loaders";
 
-//sample projects
-const project = new Project("Project 1");
-projectDependencies.projects.push(project);
-const project2 = new Project("Project 2");
-projectDependencies.projects.push(project2);
-console.log(projectDependencies);
-
 export function displayCard(){
+    const projectSaved = projectDependencies.getProjects();
     loadElemToContainer(".container", "div", "project-card");
-    projectDependencies.projects.forEach(p => {
+    projectSaved.forEach(p => {
         loadElemToContainer("#project-card", "div", `project-${p.id}`);
         loadElemToContainer(`#project-${p.id}`, "p", `project-${p.id}-title`);
         addTextToElem(`#project-${p.id}-title`, p.title);
@@ -23,7 +16,7 @@ export function displayCard(){
         addTextToElem(`#project-${p.id}-date`, p.dateCreated);
         addAttributeToElem(`#project-${p.id}`, "data-id", p.id);
         addAttributeToElem(`#project-${p.id}`, 'class', 'projects');
-
+        
         loadElemToContainer(`#project-${p.id}`, 'button', `project-${p.id}-delete-btn`);
         addTextToElem(`#project-${p.id}-delete-btn`, "Delete Project");
     });
