@@ -4,6 +4,7 @@ import { Storage } from "../factories/storage";
 const storage = new Storage();
 
 export const projectDependencies = (() => {
+    // insert all the functions inside to not expose the projects
     let projects = [];
 
     const init = () => {
@@ -53,13 +54,7 @@ export const projectDependencies = (() => {
         getProjects,
         createProject,
         deleteProject,
+        addTodoToProject,
 
     }
 })();
-
-export const addTodoToProject = (projId, todo) => {
-    const project = projectDependencies.projects.find(p => p.id === projId);
-    if (!project) return;
-    project.todos.push(todo);
-    return project;
-}
