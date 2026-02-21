@@ -1,5 +1,3 @@
-import { projectDependencies } from "../managers/project_manager";
-
 export class Storage {
     storageAvailable(type){
         try {
