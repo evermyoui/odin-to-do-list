@@ -16,7 +16,9 @@ export function displayCard(){
         addTextToElem(`#project-${p.id}-date`, p.dateCreated);
         addAttributeToElem(`#project-${p.id}`, "data-id", p.id);
         addAttributeToElem(`#project-${p.id}`, 'class', 'projects');
-        
+
+        loadElemToContainer(`#project-${p.id}`, 'div', `todo-expand-${p.id}-div`);
+
         loadElemToContainer(`#project-${p.id}`, 'button', `project-${p.id}-delete-btn`);
         addTextToElem(`#project-${p.id}-delete-btn`, "Delete Project");
     });
