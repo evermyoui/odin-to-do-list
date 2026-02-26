@@ -1,9 +1,11 @@
 import { projectDependencies } from "../managers/project_manager";
+import { createTodo } from "../managers/todo_manager";
 import { 
     addAttributeToElem, 
     addTextToElem, 
     loadElemToContainer 
 } from "./call_loaders";
+
 
 export function displayCard(){
     const projectSaved = projectDependencies.getProjects();
@@ -18,6 +20,7 @@ export function displayCard(){
         addAttributeToElem(`#project-${p.id}`, 'class', 'projects');
 
         loadElemToContainer(`#project-${p.id}`, 'div', `todo-expand-${p.id}-div`);
+        addAttributeToElem(`#todo-expand-${p.id}-div`, 'class', 'hidden');
 
         loadElemToContainer(`#project-${p.id}`, 'button', `project-${p.id}-delete-btn`);
         addTextToElem(`#project-${p.id}-delete-btn`, "Delete Project");
