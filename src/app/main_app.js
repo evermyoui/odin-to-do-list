@@ -1,10 +1,12 @@
 import { 
     displayCard, 
-    displayEnterProject, 
+    displayEnterProject,
+    displayTodo, 
 } from "../dom/display_dom";
 import { 
     projectDependencies 
 } from "../managers/project_manager";
+
 
 export class Main_App {
     constructor(){   
@@ -62,6 +64,7 @@ export class Main_App {
 
             title.addEventListener('click', ()=> {
                 //expand todo
+                this.expandTodo(projId);
             });
             //delete project
             deleteProj.addEventListener("click", () => {
@@ -71,6 +74,27 @@ export class Main_App {
                 document.querySelector(".container").innerHTML = "";
                 this.homePage();
             });
+        });
+    }
+    // I want to put the expanded todo before the delete button
+    expandTodo(projectId){
+        document.querySelectorAll('[id^="todo-expand-"]').forEach(div => {
+            div.classList.add("toggle");
+        })
+        const project = projectDependencies.getProjects().find(p => p.id === projectId);
+        if (!project) return;
+
+        const todoDiv = document.querySelector(`#todo-expand-${projectId}-div`);
+
+        todoDiv.innerHTML = '';
+        todoDiv.classList.remove('hidden');
+
+        if(project.todos.length === 0) {
+            console.log("CLICKED NO TODO");
+            console.log("TOGGLE", todoDiv.className);
+        }
+        project.todos.forEach(todo => {
+            displayTodo(projectId, todo);
         });
     }
 }
