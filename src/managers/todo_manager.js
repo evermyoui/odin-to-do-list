@@ -1,15 +1,17 @@
 import { Todo } from "../factories/todo"
 import { projectDependencies } from "./project_manager";
 
-export const createTodo = () => {
-    const todo = new Todo();
-    projectDependencies.defaultProject.todos.push(todo);
+const projectSaved = projectDependencies.getProjects();
+const defaultProj = projectSaved[0];
+
+export const createTodo = (title, description, dueDate, priority) => {
+    const todo = new Todo(title, description, dueDate, priority);
+    defaultProj.todos.push(todo);
     return todo;
 }
 
-export const deleteTodo = (todoId) => {
-    const todoIndex = projectDependencies.defaultProject.todos.findIndex(t => t.id === todoId);
-    if (todoIndex === -1) return;
-
-    projectDependencies.defaultProject.todos.splice(todoIndex, 1);
-}
+// export const deleteTodo = (todoId) => {
+//     const todoIndex = defaultProject.todos.findIndex(t => t.id === todoId);
+//     if (todoIndex === -1) return;
+//     defaultProject.todos.splice(todoIndex, 1);
+// }
