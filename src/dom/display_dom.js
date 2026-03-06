@@ -1,5 +1,5 @@
+import { Todo } from "../factories/todo";
 import { projectDependencies } from "../managers/project_manager";
-import { createTodo } from "../managers/todo_manager";
 import { 
     addAttributeToElem, 
     addTextToElem, 
@@ -10,6 +10,7 @@ import {
 export function displayCard(){
     const projectSaved = projectDependencies.getProjects();
     loadElemToContainer(".container", "div", "project-card");
+
     projectSaved.forEach(p => {
         loadElemToContainer("#project-card", "div", `project-${p.id}`);
         loadElemToContainer(`#project-${p.id}`, "p", `project-${p.id}-title`);
@@ -37,4 +38,7 @@ export function displayEnterProject(){
     addAttributeToElem(`#project-input-title`, "type", "text");
     addAttributeToElem(`#project-input-title`, "placeholder", "Enter Project Title");
     addAttributeToElem("#project-input-title", `style`, `display: none;`);
+}
+export function displayTodo(projectId, todo){
+    loadElemToContainer(`#todo-expand-${projectId}-div`, 'div', `todo-card-${todo.id}-div`);
 }

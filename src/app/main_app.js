@@ -3,6 +3,7 @@ import {
     displayEnterProject,
     displayTodo, 
 } from "../dom/display_dom";
+import { Todo } from "../factories/todo";
 import { 
     projectDependencies 
 } from "../managers/project_manager";
@@ -78,23 +79,28 @@ export class Main_App {
     }
     // I want to put the expanded todo before the delete button
     expandTodo(projectId){
+        //hide all todos
         document.querySelectorAll('[id^="todo-expand-"]').forEach(div => {
-            div.classList.add("toggle");
+            div.classList.add("hidden");
         })
-        const project = projectDependencies.getProjects().find(p => p.id === projectId);
-        if (!project) return;
 
         const todoDiv = document.querySelector(`#todo-expand-${projectId}-div`);
-
+        //find selected project
+        const project = projectDependencies.getProjects().find(p => p.id === projectId);
+        if (!project) return;
+        
+        //clear container
         todoDiv.innerHTML = '';
         todoDiv.classList.remove('hidden');
-
+        //if empty show message
         if(project.todos.length === 0) {
-            console.log("CLICKED NO TODO");
-            console.log("TOGGLE", todoDiv.className);
+            console.log("No Todo");
         }
+
+        //render all todo
         project.todos.forEach(todo => {
             displayTodo(projectId, todo);
+            console.log(document.querySelector(`#todo-card-${todo.id}-div`));
         });
     }
 }
